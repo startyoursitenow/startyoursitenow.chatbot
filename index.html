@@ -37,7 +37,7 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
 
   <!-- Styles -->
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/style.css" />
 
   <!-- Schema.org LocalBusiness -->
   <script type="application/ld+json">
@@ -505,6 +505,18 @@
             <summary>Per quali attività è adatto?</summary>
             <p>Per qualsiasi attività locale: ristoranti, estetisti, ottici, B&B, palestre, studi professionali e molto altro.</p>
           </details>
+          <details class="faq-item reveal">
+            <summary>Dominio e hosting sono inclusi?</summary>
+            <p>Ti aiutiamo a scegliere e configurare dominio e hosting. Costi e rinnovi vengono sempre indicati con chiarezza prima della pubblicazione.</p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>Posso chiedere modifiche dopo la prima versione?</summary>
+            <p>Sì. La prima versione serve proprio a raccogliere il tuo feedback e rifinire testi, immagini e dettagli prima della consegna.</p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>Quali materiali devo fornire?</summary>
+            <p>Bastano informazioni sull'attività, servizi, contatti ed eventuali foto o logo. Se manca qualcosa, ti guidiamo nella preparazione.</p>
+          </details>
         </div>
       </div>
     </section>
@@ -560,43 +572,55 @@
     <span class="wa-icon" aria-hidden="true">💬</span> Richiedi la tua demo gratuita
   </a>
 
-  <!-- ============ CHATBOT ASSISTANT ============ -->
-  <button class="chat-launcher" id="chatLauncher" type="button" aria-label="Apri assistente Start Your Site Now" aria-controls="chatWindow" aria-expanded="false">
-    <span class="launcher-pulse" aria-hidden="true"></span>
-    <span class="launcher-icon" aria-hidden="true">💬</span>
-    <span class="launcher-text">CHAT</span>
-    <span class="launcher-badge" id="chatBadge">Nuovo messaggio</span>
+  <!-- ============ AI DEMO ASSISTANT ============ -->
+  <button class="ai-launcher" id="aiLauncher" type="button" aria-label="Apri Demo AI gratuita" aria-controls="aiWindow" aria-expanded="false">
+    <span class="ai-launcher-pulse" aria-hidden="true"></span>
+    <span class="ai-launcher-icon" aria-hidden="true">✨</span>
+    <span class="ai-launcher-text">DEMO GRATUITA</span>
+    <span class="ai-launcher-badge" id="aiBadge">Nuovo messaggio</span>
   </button>
 
-  <div class="chat-window" id="chatWindow" role="dialog" aria-label="Assistente Start Your Site Now" aria-modal="false" aria-hidden="true">
-    <div class="chat-header">
-      <div class="chat-header-info">
-        <div class="chat-avatar" aria-hidden="true">S</div>
+  <div class="ai-window" id="aiWindow" role="dialog" aria-label="AI Demo Assistant" aria-modal="false" aria-hidden="true">
+    <div class="ai-header">
+      <div class="ai-header-info">
+        <div class="ai-avatar" aria-hidden="true">S</div>
         <div>
-          <strong>Start Your Site Now</strong>
-          <span class="chat-status"><i></i> Online ora</span>
+          <strong>AI Demo Assistant</strong>
+          <span class="ai-status"><i></i> Online ora</span>
         </div>
       </div>
-      <button class="chat-close" id="chatClose" type="button" aria-label="Chiudi chat">✕</button>
+      <button class="ai-close" id="aiClose" type="button" aria-label="Chiudi chat">✕</button>
     </div>
 
-    <div class="chat-body" id="chatBody" role="log" aria-live="polite" aria-relevant="additions"></div>
+    <div class="ai-body" id="aiBody" role="log" aria-live="polite" aria-relevant="additions"></div>
 
-    <div class="chat-quick" id="chatQuick" aria-label="Domande suggerite">
-      <button class="quick-btn" type="button" data-message="Quanto costa un sito?">Prezzi</button>
-      <button class="quick-btn" type="button" data-message="Come funziona?">Come funziona</button>
-      <button class="quick-btn" type="button" data-message="Fate anche SEO?">SEO</button>
-      <button class="quick-btn" type="button" data-message="Mi mostri un esempio?">Portfolio</button>
-      <button class="quick-btn" type="button" data-message="Come vi contatto?">Contatti</button>
+    <div class="ai-quick" id="aiQuick" aria-label="Azioni rapide">
+      <button class="ai-quick-btn" type="button" data-action="generate">✨ Genera una landing</button>
+      <button class="ai-quick-btn" type="button" data-action="show">👁️ Mostra landing</button>
+      <button class="ai-quick-btn" type="button" data-action="contacts">📇 Contatti salvati</button>
+      <button class="ai-quick-btn" type="button" data-action="export">📤 Esporta dati</button>
     </div>
 
-    <form class="chat-input" id="chatForm" novalidate>
-      <label class="sr-only" for="chatInput">Scrivi un messaggio</label>
-      <input type="text" id="chatInput" placeholder="Scrivi un messaggio..." autocomplete="off" aria-label="Messaggio" maxlength="500" />
+    <form class="ai-input" id="aiForm" novalidate>
+      <label class="sr-only" for="aiInput">Scrivi un messaggio</label>
+      <input type="text" id="aiInput" placeholder="Scrivi un messaggio..." autocomplete="off" aria-label="Messaggio" maxlength="500" />
       <button type="submit" aria-label="Invia messaggio">➤</button>
     </form>
   </div>
 
-  <script src="script.js"></script>
+  <div class="ai-preview-modal" id="aiPreviewModal" role="dialog" aria-label="Anteprima landing" aria-modal="true" aria-hidden="true">
+    <div class="ai-preview-content">
+      <div class="ai-preview-bar">
+        <strong id="aiPreviewTitle">Anteprima Landing</strong>
+        <div class="ai-preview-actions">
+          <button class="ai-preview-open" id="aiPreviewOpen" type="button">Apri in nuova scheda ↗</button>
+          <button class="ai-close" id="aiPreviewClose" type="button" aria-label="Chiudi anteprima">✕</button>
+        </div>
+      </div>
+      <iframe class="ai-preview-frame" id="aiPreviewFrame" title="Anteprima landing generata" sandbox="allow-scripts"></iframe>
+    </div>
+  </div>
+
+  <script src="js/script.js" defer></script>
 </body>
 </html>
