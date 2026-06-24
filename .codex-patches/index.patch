@@ -1,0 +1,70 @@
+diff --git a/index.html b/index.html
+index 74dea23..a1d885c 100644
+--- a/index.html
++++ b/index.html
+@@ -580,32 +580,45 @@
+     <span class="ai-launcher-badge" id="aiBadge">Nuovo messaggio</span>
+   </button>
+ 
+-  <div class="ai-window" id="aiWindow" role="dialog" aria-label="AI Demo Assistant" aria-modal="false" aria-hidden="true">
+-    <div class="ai-header">
+-      <div class="ai-header-info">
+-        <div class="ai-avatar" aria-hidden="true">S</div>
+-        <div>
+-          <strong>AI Demo Assistant</strong>
+-          <span class="ai-status"><i></i> Online ora</span>
++  <div class="ai-window" id="aiWindow" role="dialog" aria-label="AI Demo Assistant con anteprima live" aria-modal="false" aria-hidden="true">
++    <div class="ai-chat-column">
++      <div class="ai-header">
++        <div class="ai-header-info">
++          <div class="ai-avatar" aria-hidden="true">S</div>
++          <div>
++            <strong>AI Demo Assistant</strong>
++            <span class="ai-status"><i></i> Anteprima live</span>
++          </div>
+         </div>
++        <button class="ai-close" id="aiClose" type="button" aria-label="Chiudi chat">✕</button>
+       </div>
+-      <button class="ai-close" id="aiClose" type="button" aria-label="Chiudi chat">✕</button>
+-    </div>
+ 
+-    <div class="ai-body" id="aiBody" role="log" aria-live="polite" aria-relevant="additions"></div>
++      <div class="ai-body" id="aiBody" role="log" aria-live="polite" aria-relevant="additions"></div>
++
++      <div class="ai-quick" id="aiQuick" aria-label="Azioni rapide">
++        <button class="ai-quick-btn" type="button" data-action="generate">✨ Genera una landing</button>
++        <button class="ai-quick-btn" type="button" data-action="show">👁️ Mostra landing</button>
++        <button class="ai-quick-btn" type="button" data-action="contacts">📇 Contatti salvati</button>
++        <button class="ai-quick-btn" type="button" data-action="export">📤 Esporta dati</button>
++      </div>
+ 
+-    <div class="ai-quick" id="aiQuick" aria-label="Azioni rapide">
+-      <button class="ai-quick-btn" type="button" data-action="generate">✨ Genera una landing</button>
+-      <button class="ai-quick-btn" type="button" data-action="show">👁️ Mostra landing</button>
+-      <button class="ai-quick-btn" type="button" data-action="contacts">📇 Contatti salvati</button>
+-      <button class="ai-quick-btn" type="button" data-action="export">📤 Esporta dati</button>
++      <form class="ai-input" id="aiForm" novalidate>
++        <label class="sr-only" for="aiInput">Scrivi un messaggio</label>
++        <input type="text" id="aiInput" placeholder="Scrivi un messaggio..." autocomplete="off" aria-label="Messaggio" maxlength="500" />
++        <button type="submit" aria-label="Invia messaggio">➤</button>
++      </form>
+     </div>
+ 
+-    <form class="ai-input" id="aiForm" novalidate>
+-      <label class="sr-only" for="aiInput">Scrivi un messaggio</label>
+-      <input type="text" id="aiInput" placeholder="Scrivi un messaggio..." autocomplete="off" aria-label="Messaggio" maxlength="500" />
+-      <button type="submit" aria-label="Invia messaggio">➤</button>
+-    </form>
++    <aside class="ai-live-panel" aria-label="Anteprima live del sito">
++      <div class="ai-live-toolbar">
++        <div>
++          <span>ANTEPRIMA LIVE</span>
++          <strong id="aiLiveTitle">Il tuo sito</strong>
++        </div>
++        <span class="ai-live-dot">● Aggiornamento automatico</span>
++      </div>
++      <div class="ai-live-preview" id="aiLivePreview" aria-live="polite"></div>
++    </aside>
+   </div>
+ 
+   <div class="ai-preview-modal" id="aiPreviewModal" role="dialog" aria-label="Anteprima landing" aria-modal="true" aria-hidden="true">
